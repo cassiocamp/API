@@ -41,7 +41,7 @@ app.get("/usuarios/:id", (req, res) => {
 //Criar um usuário
 app.post("/usuarios", (req, res) => {
     const novoUsuario = req.body;
-    novoUsuario.id = usuarios. lennght + 1;
+    novoUsuario.id = usuarios.lenght + 1;
     usuarios.push(novoUsuario);
 
     res.status(201).send(novoUsuario);
@@ -58,7 +58,7 @@ app.put("/usuarios/:id", (req, res) => {
         usuarios[index] = novoUsuario;
         res.status(204).send(novoUsuario);
     } else {
-        res.status(404).send("Usuário não encontrado!")
+        res.status(404).send("Usuário não encontrado!");
 
     }
 
@@ -72,14 +72,13 @@ app.delete("/usuario/:id", (req, res) => {
 
     if (index != null){
         usuarios.splice(index, 1);
-        res.status(204).send("Usuário com id:" + id + " removido com sucesso!")
+        res.status(204).send("Usuário com id:" + id + " removido com sucesso!");
 
     } else{
-        res.status(404).send("Usuário não encontrado!")
+        res.status(404).send("Usuário não encontrado!");
     }
 })
 
 app.listen(port, () =>{
-    console.log("Servidor rodando em http://localhost:3000")
-
+    console.log("Servidor rodando em http://localhost:3000");
 }); 

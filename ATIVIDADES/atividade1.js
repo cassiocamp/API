@@ -23,13 +23,13 @@ app.get = ("/tarefas", (req, res) => {
  
 
 // Busca uma tarefa -> get by ID
-app.get = ("/tareas", (req, res) => {
+app.get = ("/tarefas", (req, res) => {
     const id = parseInt(req.params.id);
 
     const tarefa = tarefas.find(tarefa  => tarefa.id == id);
 
-    if (usuario != null) {
-        res.send(usuario)
+    if (tarefas != null) {
+        res.send(tarefas)
     } else {
         res.status(404).send("Tarefa não encontrada!")
     }

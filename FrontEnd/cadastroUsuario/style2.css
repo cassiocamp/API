@@ -10,3 +10,8 @@
     align-items: center;
     height: 100vh;
 }
+
+.botoes{
+    display: flex;
+    justify-content: space-between; /* usar co projeto */
+}

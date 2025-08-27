@@ -1,39 +1,39 @@
 const express = require('express'); // Importa o Express
-const cors = require("cors"); //Importa o CORS
+const cors = require('cors'); // Importa o CORS
 
-const app = express(); // Cria o servidor
+const app = express(); //Cria o servidor
 
-const port = 3000; // Variável para armazenar a porta
+const port = 3000; //Variavel para armazenar a porta
 
 //Para permitir receber json nas requisições
 app.use(express.json());
 app.use(cors());
 
 const usuarios = [
-    {"id": 1, "nome": "Cassio", "idade": "17 anos", "senha": "2135"},
-    {"id": 2 , "nome": "Italo", "idade": "13 anos", "senha": "2011"}
+    { "id": 1, "nome": "Italo", "idade": 17, "senha": "12345" },
+    { "id": 2, "nome": "Admin", "idade": 20, "senha": "1234" }
 ]
 
-//request = requisição
-//response = resposta
+//request - requisição
+//response - respota
 app.get("/", (request, response) => {
-    response.send("Primeiro servidor AIPSII - Malwee");
-
+    response.send("Primeiro servidor DESI - Malwee");
 })
 
-//Buscar todos os usuarios
-app.get("/usuarios", (req, res) =>{
-    res.send(usuarios); // send -> Envia os dados
+//Buscar todos os usuários
+app.get("/usuarios", (req, res) => {
+    //send -> envia os dados
+    res.send(usuarios);
 })
 
-//Buscar um usuário - > get by id
+//Buscar um usuário -> get by id
 app.get("/usuarios/:id", (req, res) => {
+    //params - parametros da requisição (fica na url)
     const id = parseInt(req.params.id);
 
-    const usuario = usuarios
-    .find(usuario => usuario.id == id);
+    const usuario = usuarios.find(usuario => usuario.id == id);
 
-    if(usuario != null) {
+    if (usuario != null) {
         res.send(usuario)
     } else {
         res.status(404).send("Usuário não encontrado!")
@@ -42,11 +42,12 @@ app.get("/usuarios/:id", (req, res) => {
 
 //Criar um usuário
 app.post("/usuarios", (req, res) => {
+    //body - corpo da requisição
     const novoUsuario = req.body;
-    novoUsuario.id = usuarios.lenght + 1;
+    novoUsuario.id = usuarios.length + 1;
     usuarios.push(novoUsuario);
 
-    res.status(201).send(novoUsuario);
+    res.status(201).send(novoUsuario)
 })
 
 //Atualizar um usuário
@@ -56,31 +57,31 @@ app.put("/usuarios/:id", (req, res) => {
     novoUsuario.id = id;
     const index = usuarios.findIndex(usuario => usuario.id == id);
 
-    if (index != null){
+    if (index != null) {
         usuarios[index] = novoUsuario;
         res.status(204).send(novoUsuario);
     } else {
-        res.status(404).send("Usuário não encontrado!");
-
+        res.status(404).send("Usuário não encontrado!")
     }
 
 })
 
-
-//Deletar usuário
-app.delete("/usuario/:id", (req, res) => {
+//Deletar um usuário
+app.delete("/usuarios/:id", (req, res) => {
     const id = parseInt(req.params.id);
     const index = usuarios.findIndex(usuario => usuario.id == id);
 
-    if (index != null){
-        usuarios.splice(index, 1);
-        res.status(204).send("Usuário com id:" + id + " removido com sucesso!");
+    if (index != null) {
 
-    } else{
-        res.status(404).send("Usuário não encontrado!");
+
+        
+        usuarios.splice(index, 1);
+        res.status(204).send("Usuário com id:" + id + " removido com sucesso!")
+    } else {
+        res.status(404).send("Usuário não encontrado!")
     }
 })
 
-app.listen(port, () =>{
+app.listen(port, () => {
     console.log("Servidor rodando em http://localhost:3000");
-}); 
+})

@@ -1,17 +1,13 @@
-.cadastrarUsuario{
+
+
+.botoes {
     display: flex;
-    justify-content: end;
-    margin-top: 30px;
+    justify-content: space-between;
 }
 
-.forms{
-    display: flex;
+body {
+    display: grid;
     justify-content: center;
     align-items: center;
     height: 100vh;
-}
-
-.botoes{
-    display: flex;
-    justify-content: space-between; /* usar co projeto */
 }

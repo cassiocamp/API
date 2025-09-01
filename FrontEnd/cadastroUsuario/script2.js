@@ -25,7 +25,11 @@ fetch('http://localhost:3000/usuarios', {
 
     .then(response => response.json())
 
-    .then(data => console.log(data))
+    .then(dados => {
+        console.log(dados)
+        alert("Usuário cadstrado com sucesso!");
+        window.location.href = "../index.html";
+    })
 
     .catch(error => console.log(error));
 }

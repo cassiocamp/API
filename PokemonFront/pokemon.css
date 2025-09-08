@@ -1,0 +1,15 @@
+.centralizar{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.corFundo{
+    background-color: rgb(205, 216, 244);
+}
+
+.barraPesquisa{
+    width: 500px;
+    
+}
+

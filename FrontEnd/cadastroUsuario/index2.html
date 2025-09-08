@@ -14,7 +14,7 @@
 <body>
     <div class="forms">
         <form class="container" onsubmit="cadastroUsuario(event)">
-          <h1>Atualizar Usuario</h1>
+          <h1 class="centralizar">Cadastrar Usuário</h1>
             <div class="mb-3">
                 <label for="nome" class="form-label">Nome do Usuário</label>
                 <input type="text" class="form-control" id="nome">
@@ -27,12 +27,38 @@
                 <label for="senha" class="form-label">Senha</label>
                 <input type="password" class="form-control" id="senha">
             </div>
-            <div class="botoes">
-                <a href="../index.html" class="btn btn-secondary">Voltar</a>
-                <button type="submit" class="btn btn-primary">Cadastrar</button>
-            </div>
         </form>
     </div>
+
+    <div class="forms">
+        <form class="container " onsubmit="cadastroUsuario(event)">
+            <h1 class="centralizar">Endereço</h1>
+                <div class="mb-3">
+                    <label for="cep" class="form-label">CEP</label>
+                    <input type="text" class="form-control" id="cep">
+                </div>
+                <div class="mb-3">
+                    <label for="uf" class="form-label">Estado</label>
+                    <input type="text" class="form-control" id="uf">
+                </div>
+                <div class="mb-3">
+                    <label for="cidade" class="form-label">Cidade</label>
+                    <input type="text" class="form-control" id="cidade">
+                </div>
+                <div class="mb-3">
+                    <label for="bairro" class="form-label">Bairro</label>
+                    <input type="text" class="form-control" id="bairro">
+                </div>
+                <div class="mb-3">
+                    <label for="rua" class="form-label">Rua</label>
+                    <input type="text" class="form-control" id="rua">
+                </div>
+                <div class="botoes">
+                    <a href="../index.html" class="btn btn-secondary">Voltar</a>
+                    <button type="submit" class="btn btn-primary">Cadastrar</button>
+                </div>
+            </form>
+        </div>
     <script src="script2.js"></script>
 </body>
 </html>

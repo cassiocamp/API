@@ -12,3 +12,9 @@ body {
     height: 100vh;
     background-color: rgba(11, 11, 78, 0.322);
 }
+
+.centralizar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

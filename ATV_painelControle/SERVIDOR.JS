@@ -92,18 +92,13 @@ app.post("/produtos/:id/saida", (req, res) => {
 
     const produto = produto.find(p => p.id === id);
 
-    if (!produto) {
-        return res.status(400).send("Produto não encontrado!");
-
-    }
-
-    if(typeof quantidade !== "number" || quantidade <= 0) {
-        return res.status(400).send("Quantidade inválida!");
+    if (quantidade > produto.quantidade) {
+        return res.status(400).send("A quantidade de saída é maior que o estoque atual!");
     }
 
     produto.quantidade -= quantidade;
     res.send(produto);
-})
+});
 
 app.listen(port, () => {
     console.log("Servidor rodando em http://localhost:3000");
